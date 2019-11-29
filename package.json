@@ -1,0 +1,14 @@
+{
+  "name": "recipes-site",
+  "version": "1.0.0",
+  "description": "Task runner stuff to add on to cargo web",
+  "scripts": {
+    "start": "concurrently \"cargo web start --auto-reload\" \"watchexec --exts scss ./build-styles.sh\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^2.0.1"
+  }
+}

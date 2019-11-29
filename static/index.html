@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Recipes Site</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+    <script>
+      var Module = {};
+      var __cargo_web = {};
+      Object.defineProperty(Module, "canvas", {
+        get: function() {
+          if (__cargo_web.canvas) {
+            return __cargo_web.canvas;
+          }
+
+          var canvas = document.createElement("canvas");
+          document.querySelector("body").appendChild(canvas);
+          __cargo_web.canvas = canvas;
+
+          return canvas;
+        }
+      });
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+
+  <body>
+    <script src="/recipes-web.js"></script>
+  </body>
+</html>
