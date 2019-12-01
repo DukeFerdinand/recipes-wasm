@@ -1,0 +1,28 @@
+.searchbar {
+  margin: 0 2rem;
+  overflow: none;
+  height: 0px;
+  * {
+    display: none;
+  }
+  transition: all 250ms;
+  &.open {
+    height: 48px;
+    margin-bottom: 1rem;
+    border-top: 1px solid #2c2c2c;
+    border-bottom: 1px solid #2c2c2c;
+
+    * {
+      display: initial;
+    }
+    input {
+      height: 100%;
+    }
+  }
+  input {
+    height: 0;
+    flex: 1;
+    font-size: 22px;
+    border: none;
+  }
+}

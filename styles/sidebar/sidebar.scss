@@ -1,0 +1,29 @@
+@use "../utils/utils";
+
+.sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: white;
+  border-left: 1px solid #2c2c2c;
+
+  height: 100vh;
+  width: 0;
+  overflow: hidden;
+  transition: width 250ms;
+
+  &.open {
+    width: 300px;
+  }
+
+  .sidebar-title-wrapper {
+    // This styling ensures the nav title bar and sidebar title are same height
+    padding-left: 1rem;
+    height: $nav-height;
+    justify-content: space-between;
+
+    i {
+      margin-right: 1rem;
+    }
+  }
+}

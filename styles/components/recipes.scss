@@ -1,0 +1,38 @@
+.recipe-card {
+  border-radius: 10px;
+  overflow: hidden;
+  // box-shadow: 0 0 10px rgba(25, 25, 25, 0.55);
+  //   <div class="recipe-card">
+  //   <div class="card-upper">
+  //     <img src="/assets/main-hero.jpg" class="recipe-image" />
+  //   </div>
+  //   <div class="card-lower">
+  //     <div class="servings">{1}</div>
+  //   </div>
+  // </div>
+  .card-upper {
+    .recipe-image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+}
+
+.recipe-row {
+  .row-title {
+    font-size: 25px;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #2c2c2c;
+  }
+  .row-content {
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-around;
+  }
+  .recipe-card {
+    flex-basis: 33%;
+  }
+}

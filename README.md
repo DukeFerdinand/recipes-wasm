@@ -14,13 +14,14 @@ You'll need the following packages installed (via `cargo install <package>`):
 
 - `cargo-web`
 - `watchexec`
-- `sass-rs`
+
+And also dart sass for building the styles. Installation instructions for your platform can be found [here](https://sass-lang.com/install).
 
 No need for configuration on those on OSX and Linux, but I can't speak for Windows.
 
 And for a parallel task runner I'm using the npm package `concurrently` as it's pretty easy to use and I'm a frontend dev so I've got a JavaScript toolchain installed pretty much everywhere.
 
-To run the app the way I do, run `npm install && npm start` or substitute whatever concurrent command you use (the two commands I use are `cargo web start` and `sass-rs < styles/index.scss > static/index.css`)
+To run the app the way I do, run `npm install && npm start` or substitute whatever concurrent command you use (the two commands I use are `cargo web start` and `sass styles/index.scss:static/index.css`)
 
 ### Features
 

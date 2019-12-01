@@ -1,5 +1,8 @@
 /target
 **/*.rs.bk
+.DS_Store
 
 # JS / Frontend
 node_modules/
+index.css
+index.css.map

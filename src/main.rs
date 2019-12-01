@@ -2,45 +2,68 @@
 extern crate yew;
 
 use yew::prelude::App;
-use yew::services::{ConsoleService, FetchService};
-use yew::{html, Component, ComponentLink, Html, ShouldRender};
+use yew::services::FetchService;
+use yew::{html, Callback, Component, ComponentLink, Html, ShouldRender};
 
 // Custom files
 mod components;
-use components::navbar;
+use components::navbar::Navbar;
+use components::searchbar::Searchbar;
+use components::sidebar::Sidebar;
 
 struct Model {
-    console: ConsoleService,
     fetch: FetchService,
+    sidebar_open: bool,
+    searchbar_open: bool,
+    toggle_sidebar: Callback<()>,
+    toggle_searchbar: Callback<()>,
 }
 
 enum Msg {
-    DoIt,
+    ToggleSidebar,
+    ToggleSearchbar,
 }
 
 impl Component for Model {
     type Message = Msg;
     type Properties = ();
-    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Model {
+    fn create(_: Self::Properties, mut link: ComponentLink<Self>) -> Model {
+        let toggle_sidebar = link.send_back(|_| Msg::ToggleSidebar);
+        let toggle_searchbar = link.send_back(|_| Msg::ToggleSearchbar);
         Self {
-            console: ConsoleService::new(),
             fetch: FetchService::new(),
+            sidebar_open: false,
+            searchbar_open: false,
+            toggle_sidebar,
+            toggle_searchbar,
         }
     }
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::DoIt => {
-                self.console.log("Howdy");
+            // Used by both navbar and sidebar. one for opening and one for closing
+            Msg::ToggleSidebar => {
+                self.sidebar_open = !self.sidebar_open;
+                true
+            }
+            Msg::ToggleSearchbar => {
+                self.searchbar_open = !self.searchbar_open;
                 true
             }
         }
     }
 
-    fn view(&self) -> Html<Self> {
+    fn view(&self) -> yew::virtual_dom::VNode<Self> {
         html! {
-            <div>
-                <navbar::Navbar />
-                <button onclick=|_| Msg::DoIt>{"Test the button"}</button>
+            <div class="app-wrapper">
+                <Navbar
+                    toggle_sidebar=&self.toggle_sidebar,
+                    toggle_searchbar=&self.toggle_searchbar
+                />
+                <Sidebar sidebar_open=&self.sidebar_open, toggle_sidebar=&self.toggle_sidebar />
+                <Searchbar show_searchbar=&self.searchbar_open />
+                <div class="app-container">
+                    <components::RouteWrapper />
+                </div>
             </div>
         }
     }

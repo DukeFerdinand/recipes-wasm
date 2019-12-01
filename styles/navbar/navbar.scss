@@ -1,0 +1,8 @@
+@import "../vars/heights";
+
+.navbar {
+  background: white;
+  padding: 0 1rem;
+  height: $nav-height;
+  justify-content: space-between;
+}

@@ -1,0 +1,42 @@
+.page {
+  // padding: 0.5rem 3rem;
+  width: 100%;
+  &.home-page {
+    .hero-search {
+      position: relative;
+      .hero-banner {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 600px;
+        object-fit: cover;
+        object-position: 50% 50%;
+      }
+      .hero-content {
+        height: calc(100% - 55px);
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input {
+          background: rgba(80, 80, 80, 0.5);
+          padding: 0 2rem;
+          border: none;
+          height: 50px;
+          width: 500px;
+          font-size: 24px;
+          color: #eeeeee;
+          text-align: center;
+          &::placeholder {
+            color: #eeeeee;
+          }
+        }
+      }
+    }
+  }
+}
