@@ -4,7 +4,7 @@ all: deps
 	./build-styles.sh
 	# Source cargo file
 	source ${HOME}/.cargo/env
-	cargo web deploy
+	${HOME}/.cargo/bin/cargo web deploy
 
 deps:
 	# Get Rust toolchain via rustup
@@ -12,8 +12,8 @@ deps:
 	# Activate toolchain
 	source ${HOME}/.cargo/env
 	# Confirm it works
-	cargo --version
+	${HOME}/.cargo/bin/cargo --version
 	# Get any needed cargo libraries
-	cargo install cargo-web --force
+	${HOME}/.cargo/bin/cargo install cargo-web --force
 	# Get style deps
 	npm install -g dart-sass
