@@ -4,6 +4,7 @@ all: deps
 	./build-styles.sh
 	# Source cargo file
 	source ${HOME}/.cargo/env
+	${HOME}/.cargo/bin/rustup default nightly
 	${HOME}/.cargo/bin/cargo web deploy
 
 deps:
